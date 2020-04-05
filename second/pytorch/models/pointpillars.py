@@ -3,7 +3,7 @@ PointPillars fork from SECOND.
 Code written by Alex Lang and Oscar Beijbom, 2018.
 Licensed under MIT License [see LICENSE].
 """
-
+import __init__
 import torch
 from torch import nn
 from torch.nn import functional as F

@@ -21,7 +21,7 @@ Note: If users wishes to also use their own InputReaders with the Object
 Detection configuration framework, they should define their own builder function
 that wraps the build function.
 """
-
+import __init__
 from torch.utils.data import Dataset
 
 from second.builder import dataset_builder

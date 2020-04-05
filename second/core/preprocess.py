@@ -1,3 +1,4 @@
+import __init__
 import abc
 import sys
 import time

@@ -1,3 +1,4 @@
+import __init__
 from second.pytorch.train import train, evaluate
 from google.protobuf import text_format
 from second.protos import pipeline_pb2

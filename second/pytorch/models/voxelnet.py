@@ -1,3 +1,4 @@
+import __init__
 import time
 from enum import Enum
 from functools import reduce

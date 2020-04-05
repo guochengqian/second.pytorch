@@ -1,3 +1,4 @@
+import __init__
 import io as sysio
 import json
 import os

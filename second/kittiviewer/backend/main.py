@@ -1,6 +1,6 @@
 """This backend now only support lidar. camera is no longer supported.
 """
-
+import __init__
 import base64
 import datetime
 import io as sysio

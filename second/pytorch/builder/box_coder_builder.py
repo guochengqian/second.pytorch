@@ -1,3 +1,4 @@
+import __init__
 import numpy as np
 
 from second.protos import box_coder_pb2

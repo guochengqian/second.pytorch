@@ -1,3 +1,4 @@
+import __init__
 import pathlib
 import pickle
 import time
@@ -16,7 +17,8 @@ from second.utils import simplevis
 from second.utils.timer import simple_timer
 
 import seaborn as sns
-import matplotlib.pyplot as plt 
+import matplotlib.pyplot as plt
+
 
 def merge_second_batch(batch_list):
     example_merged = defaultdict(list)
@@ -26,7 +28,7 @@ def merge_second_batch(batch_list):
     ret = {}
     for key, elems in example_merged.items():
         if key in [
-                'voxels', 'num_points', 'num_gt', 'voxel_labels', 'gt_names', 'gt_classes', 'gt_boxes'
+            'voxels', 'num_points', 'num_gt', 'voxel_labels', 'gt_names', 'gt_classes', 'gt_boxes'
         ]:
             ret[key] = np.concatenate(elems, axis=0)
         elif key == 'metadata':
@@ -53,6 +55,7 @@ def merge_second_batch(batch_list):
         else:
             ret[key] = np.stack(elems, axis=0)
     return ret
+
 
 def merge_second_batch_multigpu(batch_list):
     example_merged = defaultdict(list)
@@ -84,7 +87,7 @@ def merge_second_batch_multigpu(batch_list):
             continue
         else:
             ret[key] = np.stack(elems, axis=0)
-        
+
     return ret
 
 
@@ -232,7 +235,8 @@ def prep_pointcloud(input_dict,
                     [gt_dict["gt_boxes"], sampled_gt_boxes])
                 gt_boxes_mask = np.concatenate(
                     [gt_boxes_mask, sampled_gt_masks], axis=0)
-                sampled_gt_importance = np.full([sampled_gt_boxes.shape[0]], sample_importance, dtype=sampled_gt_boxes.dtype)
+                sampled_gt_importance = np.full([sampled_gt_boxes.shape[0]], sample_importance,
+                                                dtype=sampled_gt_boxes.dtype)
                 gt_dict["gt_importance"] = np.concatenate(
                     [gt_dict["gt_importance"], sampled_gt_importance])
 
@@ -374,7 +378,7 @@ def prep_pointcloud(input_dict,
             matched_thresholds=matched_thresholds,
             unmatched_thresholds=unmatched_thresholds,
             importance=gt_dict["gt_importance"])
-        
+
         """
         boxes_lidar = gt_dict["gt_boxes"]
         bev_map = simplevis.nuscene_vis(points, boxes_lidar, gt_dict["gt_names"])

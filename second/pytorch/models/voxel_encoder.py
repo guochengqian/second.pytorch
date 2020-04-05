@@ -1,3 +1,4 @@
+import __init__
 import time
 
 import numpy as np

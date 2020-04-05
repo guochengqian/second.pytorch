@@ -1,3 +1,4 @@
+import __init__
 import copy
 import pathlib
 import pickle
@@ -6,8 +7,8 @@ from functools import partial, reduce
 
 import numpy as np
 
-from second.core import box_np_ops
-from second.core import preprocess as prep
+from . import box_np_ops
+from . import preprocess as prep
 from second.utils.check import shape_mergeable
 
 

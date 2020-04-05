@@ -1,4 +1,5 @@
-import fire 
+import __init__
+import fire
 
 from nuscenes import NuScenes
 from nuscenes.eval.detection.config import config_factory

@@ -13,13 +13,14 @@
 # limitations under the License.
 # ==============================================================================
 """Functions to build DetectionModel training optimizers."""
-
+import __init__
 from torchplus.train import learning_schedules
 from torchplus.train import optim
 import torch
 from torch import nn
 from torchplus.train.fastai_optim import OptimWrapper, FastAIMixedOptim
 from functools import partial
+
 
 def children(m: nn.Module):
     "Get children of `m`."
@@ -30,7 +31,8 @@ def num_children(m: nn.Module) -> int:
     "Get number of children modules in `m`."
     return len(children(m))
 
-flatten_model = lambda m: sum(map(flatten_model,m.children()),[]) if num_children(m) else [m]
+
+flatten_model = lambda m: sum(map(flatten_model, m.children()), []) if num_children(m) else [m]
 
 get_layer_groups = lambda m: [nn.Sequential(*flatten_model(m))]
 
@@ -74,8 +76,6 @@ def build(optimizer_config, net, name=None, mixed=False, loss_scale=512.0):
             # regular adam
             optimizer_func = partial(
                 torch.optim.Adam, amsgrad=config.amsgrad)
-
-
 
     # optimizer = OptimWrapper(optimizer, true_wd=optimizer_config.fixed_weight_decay, wd=config.weight_decay)
     optimizer = OptimWrapper.create(

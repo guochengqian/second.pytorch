@@ -1,3 +1,4 @@
+import __init__
 import abc
 import contextlib
 
@@ -7,6 +8,7 @@ from google.protobuf import text_format
 from second.data.preprocess import merge_second_batch, prep_pointcloud
 from second.protos import pipeline_pb2
 import second.data.kitti_common as kitti
+
 
 class InferenceContext:
     def __init__(self):
