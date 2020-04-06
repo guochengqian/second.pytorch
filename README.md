@@ -85,18 +85,9 @@ cd ./second.pytorch/second
 It is recommend to use Anaconda package manager.
 
 ```bash
-conda install scikit-image scipy numba pillow matplotlib
+source env_install.sh
 ```
 
-```bash
-pip install fire tensorboardX protobuf opencv-python
-```
-
-If you don't have Anaconda:
-
-```bash
-pip install numba scikit-image scipy pillow
-```
 
 Follow instructions in [spconv](https://github.com/traveller59/spconv) to install spconv. 
 
@@ -104,17 +95,6 @@ If you want to train with fp16 mixed precision (train faster in RTX series, Tita
 
 If you want to use NuScenes dataset, you need to install [nuscenes-devkit](https://github.com/nutonomy/nuscenes-devkit).
 
-### 3. Setup cuda for numba (will be removed in 1.6.0 release)
-
-you need to add following environment variable for numba.cuda, you can add them to ~/.bashrc:
-
-```bash
-export NUMBAPRO_CUDA_DRIVER=/usr/lib/x86_64-linux-gnu/libcuda.so
-export NUMBAPRO_NVVM=/usr/local/cuda/nvvm/lib64/libnvvm.so
-export NUMBAPRO_LIBDEVICE=/usr/local/cuda/nvvm/libdevice
-```
-
-### 4. add second.pytorch/ to PYTHONPATH
 
 ## Prepare dataset
 
@@ -141,30 +121,6 @@ Then run
 ```bash
 python create_data.py kitti_data_prep KITTI_DATASET_ROOT
 ```
-
-* [NuScenes](https://www.nuscenes.org) Dataset preparation
-
-Download NuScenes dataset:
-```plain
-└── NUSCENES_TRAINVAL_DATASET_ROOT
-       ├── samples       <-- key frames
-       ├── sweeps        <-- frames without annotation
-       ├── maps          <-- unused
-       └── v1.0-trainval <-- metadata and annotations
-└── NUSCENES_TEST_DATASET_ROOT
-       ├── samples       <-- key frames
-       ├── sweeps        <-- frames without annotation
-       ├── maps          <-- unused
-       └── v1.0-test     <-- metadata
-```
-
-Then run
-```bash
-python create_data.py nuscenes_data_prep --data_path=NUSCENES_TRAINVAL_DATASET_ROOT --version="v1.0-trainval" --max_sweeps=10
-python create_data.py nuscenes_data_prep --data_path=NUSCENES_TEST_DATASET_ROOT --version="v1.0-test" --max_sweeps=10
---dataset_name="NuscenesDataset"
-```
-This will create gt database **without velocity**. to add velocity, use dataset name ```NuscenesDatasetVelo```.
 
 * Modify config file
 
@@ -242,17 +198,6 @@ You can download pretrained models in [google drive](https://drive.google.com/op
 
 Note that this pretrained model is trained before a bug of sparse convolution fixed, so the eval result may slightly worse. 
 
-## Docker (Deprecated. I can't push docker due to network problem.)
-
-You can use a prebuilt docker for testing:
-```
-docker pull scrin/second-pytorch 
-```
-Then run:
-```
-nvidia-docker run -it --rm -v /media/yy/960evo/datasets/:/root/data -v $HOME/pretrained_models:/root/model --ipc=host second-pytorch:latest
-python ./pytorch/train.py evaluate --config_path=./configs/car.config --model_dir=/root/model/car
-```
 
 ## Try Kitti Viewer Web
 
