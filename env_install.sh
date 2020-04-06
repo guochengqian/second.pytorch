@@ -16,7 +16,10 @@ pip install numba scikit-image scipy matplotlib fire tensorboardX protobuf openc
 
 cd ..
 git clone git@github.com:traveller59/spconv.git --recursive
+cd spconv
 sudo apt-get install libboostall-dev
 python setup.py bdist_wheel
 cd ./dist
-pip install
+pip install **.whl  # install the downloaded whl
+
+cd ../second
