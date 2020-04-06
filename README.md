@@ -258,7 +258,7 @@ python ./pytorch/train.py evaluate --config_path=./configs/car.config --model_di
 
 ### Major step
 
-1. run ```python ./kittiviewer/backend/main.py main --port=xxxx``` in your server/local.
+1. run ```python ./kittiviewer/backend/main.py main --port=16666``` in your server/local.
 
 2. run ```cd ./kittiviewer/frontend && python -m http.server``` to launch a local web server.
 
@@ -266,7 +266,7 @@ python ./pytorch/train.py evaluate --config_path=./configs/car.config --model_di
 
 4. input backend url (e.g. http://127.0.0.1:16666)
 
-5. input root path, info path and det path (optional)
+5. input root path (eg. /data/KITTI/object), info path (eg. /data/KITTI/object/kitti_infos_train.pkl)and det path (optional)
 
 6. click load, loadDet (optional), input image index in center bottom of screen and press Enter.
 
@@ -274,7 +274,8 @@ python ./pytorch/train.py evaluate --config_path=./configs/car.config --model_di
 
 Firstly the load button must be clicked and load successfully.
 
-1. input checkpointPath and configPath.
+1. input checkpointPath (eg. /home/qiang/Documents/codefiles/3D/detection/our-second/second/ckpts/voxelnet-13920.tckpt)and 
+configPath (eg. /home/qiang/Documents/codefiles/3D/detection/our-second/second/configs/car.fhd.config).
 
 2. click buildNet.
 
