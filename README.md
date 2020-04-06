@@ -185,7 +185,7 @@ python ./pytorch/train.py evaluate --config_path=./configs/car.fhd.config --mode
 
 ### pretrained model
 
-You can download pretrained models in [google drive](https://drive.google.com/open?id=1YOpgRkBgmSAJwMknoXmitEArNitZz63C). The ```car_fhd``` model is corresponding to car.fhd.config.
+You can download pretrained models in [google drive](https://drive.google.com/open?id=1vgK3dY7yhljsvII4dkx-PoyTmniDIn7f). The ```car_fhd``` model is corresponding to car.fhd.config.
 
 Note that this pretrained model is trained before a bug of sparse convolution fixed, so the eval result may slightly worse. 
 
