@@ -67,7 +67,7 @@ truck Nusc dist AP@0.5, 1.0, 2.0, 4.0
 ### 1. Clone code
 
 ```bash
-git clone https://github.com/traveller59/second.pytorch.git
+git clone https://github.com/guochengqian/second.pytorch.git
 cd ./second.pytorch/second
 ```
 
